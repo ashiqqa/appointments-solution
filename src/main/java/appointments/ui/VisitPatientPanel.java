@@ -28,8 +28,8 @@ public class VisitPatientPanel extends javax.swing.JPanel {
         _db = tempDb;
         initComponents();
         List<PatientModel> patients = _db.patients.get();
-        this.patientList = (DefaultTableModel) this.tablePatientQueue.getModel();
-        this.tablePatientQueue.removeAll();
+        patientList = (DefaultTableModel) this.tablePatientQueue.getModel();
+        tablePatientQueue.removeAll();
         for (PatientModel patient : patients) {
             patientList.addRow(new Object[]{patient.id, patient.getFullName(), patient.gender, patient.disease, patient.dateOfBirth});
         }
@@ -343,15 +343,14 @@ public class VisitPatientPanel extends javax.swing.JPanel {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+ 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
         //this.patientList.removeRow(0);
         List<PatientModel> patients = _db.patients.get();
-        this.patientList = (DefaultTableModel) this.tablePatientQueue.getModel();
-        this.tablePatientQueue.removeAll();
-        for (PatientModel patient : patients) {
-            patientList.addRow(new Object[]{patient.id, patient.getFullName(), patient.gender, patient.disease, patient.dateOfBirth});
+        patientList = (DefaultTableModel)this.tablePatientQueue.getModel();
+        for(PatientModel patient:patients){
+            patientList.addRow(new Object[]{patient.id,patient.getFullName(),patient.gender,patient.disease,patient.dateOfBirth});
         }
     }//GEN-LAST:event_formComponentShown
 
@@ -372,7 +371,6 @@ public class VisitPatientPanel extends javax.swing.JPanel {
             
             this.patientList.removeRow(nextIndex);
             _db.patients.delete(patient.id);
-            this.nextIndex++;
         }
         catch(IndexOutOfBoundsException ixOutEx){
             JOptionPane.showMessageDialog(this,"No patient available","Not Available",JOptionPane.INFORMATION_MESSAGE);

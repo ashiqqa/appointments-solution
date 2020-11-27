@@ -70,7 +70,7 @@
                 <Column editable="false" title="Id" type="java.lang.Integer"/>
                 <Column editable="false" title="Name" type="java.lang.String"/>
                 <Column editable="false" title="Gender" type="java.lang.String"/>
-                <Column editable="false" title="Age" type="java.lang.Byte"/>
+                <Column editable="false" title="DateOfBirth" type="java.lang.Byte"/>
                 <Column editable="false" title="Disease" type="java.lang.String"/>
               </Table>
             </Property>

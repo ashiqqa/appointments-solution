@@ -88,7 +88,7 @@ public class PatientPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Id", "Name", "Gender", "Age", "Disease"
+                "Id", "Name", "Gender", "DateOfBirth", "Disease"
             }
         ) {
             Class[] types = new Class [] {
@@ -382,7 +382,7 @@ public class PatientPanel extends javax.swing.JPanel {
         }
         this._db.patients.save(patient);
         JOptionPane.showMessageDialog(this,"Save Succefully!","Success",JOptionPane.INFORMATION_MESSAGE);
-        this.patientList.addRow(new Object[]{patient.id,patient.getFullName(),patient.gender,patient.getAge(),patient.disease});
+        this.patientList.addRow(new Object[]{patient.id,patient.getFullName(),patient.gender,patient.dateOfBirth,patient.disease});
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void radioFemaleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_radioFemaleMouseClicked
@@ -422,7 +422,6 @@ public class PatientPanel extends javax.swing.JPanel {
         this.patientList.removeRow(0);
         List<PatientModel> patients = _db.patients.get();
         patientList = (DefaultTableModel)this.tablePatient.getModel();
-        tablePatient.removeAll();
         for(PatientModel patient:patients){
             patientList.addRow(new Object[]{patient.id,patient.getFullName(),patient.gender,0,patient.disease});
         }
